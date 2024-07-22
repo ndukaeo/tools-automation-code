@@ -1,30 +1,30 @@
-# # Following steps need to be run manually
-# # sudo curl -L -o /etc/yum.repos.d/gh-cli.repo https://cli.github.com/packages/rpm/gh-cli.repo
-# # sudo dnf install gh -y
-# # gh auth login
-# # gh auth refresh -h github.com -s admin:org
-#
-# - name: Setup Prompt
-# ansible.builtin.shell: set-prompt github-runner
-#
-# - name: Add Github Runner User
-# ansible.builtin.user:
-# name: grunner
-#
-# - name: Create github directory
-# ansible.builtin.file:
-# path: /actions-runner
-# state: directory
-# owner: grunner
-# group: grunner
-#
-# - name: Download & Extract Runner
-# ansible.builtin.unarchive:
-# src: https://github.com/actions/runner/releases/download/v2.317.0/actions-runner-linux-x64-2.317.0.tar.gz
-# dest: "/actions-runner"
-# remote_src: yes
-# owner: grunner
-# group: grunner
+# Following steps need to be run manually
+# sudo curl -L -o /etc/yum.repos.d/gh-cli.repo https://cli.github.com/packages/rpm/gh-cli.repo
+# sudo dnf install gh -y
+# gh auth login
+# gh auth refresh -h github.com -s admin:org
+
+- name: Setup Prompt
+ansible.builtin.shell: set-prompt github-runner
+
+- name: Add Github Runner User
+ansible.builtin.user:
+name: grunner
+
+- name: Create github directory
+ansible.builtin.file:
+path: /actions-runner
+state: directory
+owner: grunner
+group: grunner
+
+- name: Download & Extract Runner
+ansible.builtin.unarchive:
+src: https://github.com/actions/runner/releases/download/v2.317.0/actions-runner-linux-x64-2.317.0.tar.gz
+dest: "/actions-runner"
+remote_src: yes
+owner: grunner
+group: grunner
 #
 # - name: Grab Token
 # ansible.builtin.shell: |
