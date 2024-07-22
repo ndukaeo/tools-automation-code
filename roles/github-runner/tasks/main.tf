@@ -9,22 +9,22 @@
 
 - name: Add Github Runner User
   ansible.builtin.user:
-  name: grunner
+    name: grunner
 
 - name: Create github directory
   ansible.builtin.file:
-  path: /actions-runner
-  state: directory
-  owner: grunner
-  group: grunner
+    path: /actions-runner
+    state: directory
+    owner: grunner
+    group: grunner
 
 - name: Download & Extract Runner
   ansible.builtin.unarchive:
-  src: https://github.com/actions/runner/releases/download/v2.317.0/actions-runner-linux-x64-2.317.0.tar.gz
-  dest: "/actions-runner"
-  remote_src: yes
-  owner: grunner
-  group: grunner
+    src: https://github.com/actions/runner/releases/download/v2.317.0/actions-runner-linux-x64-2.317.0.tar.gz
+    dest: "/actions-runner"
+    remote_src: yes
+    owner: grunner
+    group: grunner
 
 # - name: Grab Token
 # ansible.builtin.shell: |
