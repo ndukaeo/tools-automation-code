@@ -5,27 +5,27 @@
 # gh auth refresh -h github.com -s admin:org
 
 - name: Setup Prompt
-ansible.builtin.shell: set-prompt github-runner
+  ansible.builtin.shell: set-prompt github-runner
 
 - name: Add Github Runner User
-ansible.builtin.user:
-name: grunner
+  ansible.builtin.user:
+  name: grunner
 
 - name: Create github directory
-ansible.builtin.file:
-path: /actions-runner
-state: directory
-owner: grunner
-group: grunner
+  ansible.builtin.file:
+  path: /actions-runner
+  state: directory
+  owner: grunner
+  group: grunner
 
 - name: Download & Extract Runner
-ansible.builtin.unarchive:
-src: https://github.com/actions/runner/releases/download/v2.317.0/actions-runner-linux-x64-2.317.0.tar.gz
-dest: "/actions-runner"
-remote_src: yes
-owner: grunner
-group: grunner
-#
+  ansible.builtin.unarchive:
+  src: https://github.com/actions/runner/releases/download/v2.317.0/actions-runner-linux-x64-2.317.0.tar.gz
+  dest: "/actions-runner"
+  remote_src: yes
+  owner: grunner
+  group: grunner
+
 # - name: Grab Token
 # ansible.builtin.shell: |
 # gh api --method POST -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /orgs/raghudevopsb80/actions/runners/registration-token | jq .token
