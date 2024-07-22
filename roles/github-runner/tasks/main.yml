@@ -48,8 +48,7 @@
   become_user: ec2-user
 
 - name: Configure Github Runner
-  ansible.builtin.shell:
-    ./config.sh --url https://github.com/ndukaeo --token {{ token.stdout }} --runnergroup Default --name ec2 --labels rhel --work _work --replace
+  ansible.builtin.shell: ./config.sh --url https://github.com/ndukaeo --token {{ token.stdout }} --runnergroup Default --name ec2 --labels rhel --work _work --replace
   args:
     chdir: /actions-runner
   become_user: grunner
