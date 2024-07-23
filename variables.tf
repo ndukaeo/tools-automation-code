@@ -3,9 +3,9 @@ variable "tools" {
 
     github-runner = {
       instance_type = "t3.small"
-#       policy_name = [
-#         "AdministratorAccess"
-#       ]
+      policy_name = [
+        "AdministratorAccess"
+      ]
     }
 
 #     vault = {
