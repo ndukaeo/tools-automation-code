@@ -8,12 +8,12 @@ variable "tools" {
       ]
     }
 
-#     vault = {
-#       instance_type = "t3.small"
-#       policy_name   = []
-#     }
-#
-#
+    vault = {
+      instance_type = "t3.small"
+      policy_name   = []
+    }
+
+
   }
 }
 #
