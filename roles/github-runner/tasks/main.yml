@@ -66,6 +66,10 @@
 #  become_user: grunner
 #  when: runner_count.stdout == "0" or runner_status.stdout == "offline"
 
+#- name: Update Path file
+#  ansible.builtin.shell: find shell script to update path
+
+
 - name: Install Runner Service
   ansible.builtin.shell: ./svc.sh install grunner ; ./svc.sh start
   args:
