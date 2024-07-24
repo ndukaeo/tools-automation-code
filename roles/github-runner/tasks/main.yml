@@ -59,12 +59,12 @@
   become_user: grunner
   when: runner_count.stdout == "0" #or runner_status.stdout == "offline"
 
-#- name: Update Path file
-#  ansible.builtin.file:
-#    src: path
-#    dest: /actions-runner/.path
-#  become_user: grunner
-#  when: runner_count.stdout == "0" or runner_status.stdout == "offline"
+- name: Update Path file
+  ansible.builtin.file:
+    src: path
+    dest: /actions-runner/.path
+  become_user: grunner
+  when: runner_count.stdout == "0" #or runner_status.stdout == "offline"
 
 - name: Install Runner Service
   ansible.builtin.shell: ./svc.sh install grunner ;  ./svc.sh start
@@ -82,8 +82,8 @@
     name: terraform
     state: latest
 
-#- name: Install Ansible
-#  ansible.builtin.shell: pip-3.11 install ansible
+- name: Install Ansible
+  ansible.builtin.shell: pip-3.11 install ansible
 
 
 
