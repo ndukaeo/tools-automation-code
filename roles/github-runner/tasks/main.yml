@@ -82,7 +82,6 @@
     name: terraform
     state: latest
 
-
 - name: Install Ansible
   ansible.builtin.shell: pip-3.11 install ansible
 
