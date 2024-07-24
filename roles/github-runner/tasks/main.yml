@@ -67,7 +67,7 @@
 #  when: runner_count.stdout == "0" or runner_status.stdout == "offline"
 
 - name: Install Runner Service
-  ansible.builtin.shell: ./svc.sh install grunner ;  ./svc.sh start
+  ansible.builtin.shell: ./svc.sh install grunner ; ./svc.sh start
   args:
     chdir: /actions-runner
   when: runner_count.stdout == "0" or runner_status.stdout == "offline"
