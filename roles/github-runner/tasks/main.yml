@@ -72,20 +72,20 @@
     chdir: /actions-runner
   when: runner_count.stdout == "0" #or runner_status.stdout == "offline"
 
-#- name: Download Terraform Repo file
-#  ansible.builtin.get_url:
-#   url: https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
-#   dest: /etc/yum.repos.d/hashicorp.repo
-#
-#- name: Install Terraform
-#  ansible.builtin.dnf:
-#   name: terraform
-#   state: latest
-#
+- name: Download Terraform Repo file
+  ansible.builtin.get_url:
+    url: https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+    dest: /etc/yum.repos.d/hashicorp.repo
+
+- name: Install Terraform
+  ansible.builtin.dnf:
+    name: terraform
+    state: latest
+
 #- name: Install Ansible
 #  ansible.builtin.shell: pip-3.11 install ansible
-#
-#
-#
-#
-#
+
+
+
+
+
