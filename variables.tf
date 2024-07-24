@@ -14,8 +14,6 @@ variable "tools" {
         vault = 8200
       }
     }
-
-
   }
 }
 
